@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard - Batch Reactor AI
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <!-- Text -->
+            <div class="col-lg-7">
+
+                <span class="badge bg-primary mb-3">
+                    INDUSTRY 4.0
+                </span>
+
+                <h1 class="display-4 fw-bold">
+                    Batch Reactor
+                    <span class="text-primary">
+                        Anomaly Detection
+                    </span>
+                </h1>
+
+                <p class="lead text-secondary mt-3">
+                    Sistem monitoring dan analisis berbasis
+                    Machine Learning untuk mendeteksi anomali
+                    serta memberikan rekomendasi pengendalian
+                    pada batch reactor.
+                </p>
+
+                <div class="mt-4">
+
+                    <a
+                        href="/anomaly"
+                        class="btn btn-primary btn-lg me-2"
+                    >
+                        Anomaly Detection
+                    </a>
+
+                    <a
+                        href="/reactor-control"
+                        class="btn btn-outline-primary btn-lg"
+                    >
+                        Reactor Control
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- System Status -->
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="card reactor-card shadow-lg border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="d-flex align-items-center mb-4">
+
+                            <div class="status-indicator me-3"></div>
+
+                            <div>
+                                <h5 class="mb-0">
+                                    Reactor System
+                                </h5>
+
+                                <small class="text-success">
+                                    System Ready
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row text-center">
+
+                            <div class="col-4">
+
+                                <h4>ML</h4>
+
+                                <small class="text-secondary">
+                                    Detection
+                                </small>
+
+                            </div>
+
+                            <div class="col-4">
+
+                                <h4>RL</h4>
+
+                                <small class="text-secondary">
+                                    Control
+                                </small>
+
+                            </div>
+
+                            <div class="col-4">
+
+                                <h4>AI</h4>
+
+                                <small class="text-secondary">
+                                    Analysis
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Module Section -->
+<section class="modules-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-secondary mb-2">
+                MACHINE LEARNING
+            </span>
+
+            <h2 class="fw-bold">
+                Monitoring & Control
+            </h2>
+
+            <p class="text-secondary">
+                Pilih modul sesuai kebutuhan analisis batch reactor.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Anomaly Detection -->
+            <div class="col-md-6">
+
+                <div class="card module-card h-100 border-0 shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <div class="module-icon supervised-icon">
+                            ML
+                        </div>
+
+                        <h4 class="fw-bold mt-4">
+                            Anomaly Detection
+                        </h4>
+
+                        <p class="text-secondary">
+                            Mendeteksi kondisi anomali reactor
+                            berdasarkan parameter proses menggunakan
+                            model Machine Learning.
+                        </p>
+
+                        <a
+                            href="/anomaly"
+                            class="btn btn-primary mt-3"
+                        >
+                            Open Module
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Reactor Control -->
+            <div class="col-md-6">
+
+                <div class="card module-card h-100 border-0 shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <div class="module-icon rl-icon">
+                            RL
+                        </div>
+
+                        <h4 class="fw-bold mt-4">
+                            Reactor Control
+                        </h4>
+
+                        <p class="text-secondary">
+                            Mendapatkan rekomendasi pengendalian
+                            reactor menggunakan Reinforcement Learning.
+                        </p>
+
+                        <a
+                            href="/reactor-control"
+                            class="btn btn-outline-primary mt-3"
+                        >
+                            Open Module
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

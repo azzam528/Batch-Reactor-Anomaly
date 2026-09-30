@@ -1,0 +1,191 @@
+/* =========================
+   GENERAL
+========================= */
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    min-height: 80vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    margin-left: 10px;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    color: #6c757d;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+
+/* =========================
+   DASHBOARD CARD
+========================= */
+
+.dashboard-card {
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+}
+
+.dashboard-card .card-title {
+    font-weight: bold;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.form-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result-card {
+    margin-top: 25px;
+    border-radius: 12px;
+}
+
+.result-status {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    background-color: #ffffff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 40px 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 30px;
+    }
+
+    .dashboard-card {
+        margin-bottom: 20px;
+    }
+
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.reactor-card {
+    border-radius: 16px;
+}
+
+.status-indicator {
+    width: 14px;
+    height: 14px;
+    background-color: #198754;
+    border-radius: 50%;
+}
+
+
+/* =========================
+   MODULE SECTION
+========================= */
+
+.modules-section {
+    background-color: #ffffff;
+}
+
+.module-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+}
+
+.module-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.supervised-icon {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+}
+
+.rl-icon {
+    background-color: #e8f5e9;
+    color: #198754;
+}

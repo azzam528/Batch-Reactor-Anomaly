@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Anomaly Detection - Batch Reactor AI
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary mb-2">
+                MACHINE LEARNING
+            </span>
+
+            <h1 class="fw-bold">
+                Anomaly Detection
+            </h1>
+
+            <p class="text-secondary">
+                Masukkan parameter batch reactor untuk mengetahui
+                apakah kondisi reactor berada dalam kondisi Normal
+                atau Anomaly.
+            </p>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <h4 class="fw-bold mb-4">
+                            Reactor Parameters
+                        </h4>
+
+
+                        <!-- Error Message -->
+                        <div
+                            id="anomalyError"
+                            class="alert alert-danger d-none"
+                            role="alert"
+                        >
+                            <strong>Error:</strong>
+                            <span id="anomalyErrorText">
+                                Input tidak valid.
+                            </span>
+                        </div>
+
+
+                        <!-- Form -->
+                        <form id="anomalyForm">
+
+                            <!-- Reactor Temperature -->
+                            <div class="mb-3">
+
+                                <label
+                                    for="reactorTemp"
+                                    class="form-label fw-semibold"
+                                >
+                                    Reactor Temperature
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="reactorTemp"
+                                        name="Reactor_Temp_C"
+                                        step="any"
+                                        required
+                                    >
+
+                                    <span class="input-group-text">
+                                        °C
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Jacket Flow Rate -->
+                            <div class="mb-3">
+
+                                <label
+                                    for="jacketFlow"
+                                    class="form-label fw-semibold"
+                                >
+                                    Jacket Flow Rate
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="jacketFlow"
+                                        name="Jacket_Flow_Rate_L_min"
+                                        step="any"
+                                        required
+                                    >
+
+                                    <span class="input-group-text">
+                                        L/min
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pressure -->
+                            <div class="mb-3">
+
+                                <label
+                                    for="pressure"
+                                    class="form-label fw-semibold"
+                                >
+                                    Pressure
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="pressure"
+                                        name="Pressure_atm"
+                                        step="any"
+                                        required
+                                    >
+
+                                    <span class="input-group-text">
+                                        atm
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Reactant A -->
+                            <div class="mb-3">
+
+                                <label
+                                    for="reactantA"
+                                    class="form-label fw-semibold"
+                                >
+                                    Reactant A Concentration
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="reactantA"
+                                        name="Reactant_A_Conc_mol_L"
+                                        step="any"
+                                        required
+                                    >
+
+                                    <span class="input-group-text">
+                                        mol/L
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Product B -->
+                            <div class="mb-4">
+
+                                <label
+                                    for="productB"
+                                    class="form-label fw-semibold"
+                                >
+                                    Product B Concentration
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="productB"
+                                        name="Product_B_Conc_mol_L"
+                                        step="any"
+                                        required
+                                    >
+
+                                    <span class="input-group-text">
+                                        mol/L
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Predict Button -->
+                            <button
+                                type="submit"
+                                id="predictButton"
+                                class="btn btn-primary w-100"
+                            >
+                                <span id="predictButtonText">
+                                    Predict
+                                </span>
+
+                                <span
+                                    id="predictSpinner"
+                                    class="spinner-border spinner-border-sm d-none"
+                                    role="status"
+                                    aria-hidden="true"
+                                ></span>
+                            </button>
+
+                        </form>
+
+
+                        <!-- Result Card -->
+                        <div
+                            id="anomalyResult"
+                            class="card mt-4 border-0 d-none"
+                        >
+
+                            <div class="card-body text-center">
+
+                                <h5 class="fw-bold mb-3">
+                                    Prediction Result
+                                </h5>
+
+                                <div
+                                    id="predictionStatus"
+                                    class="fs-3 fw-bold mb-2"
+                                >
+                                    -
+                                </div>
+
+                                <p
+                                    id="predictionConfidence"
+                                    class="text-secondary mb-0"
+                                ></p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/anomaly.js') }}">
+</script>
+
+{% endblock %}
